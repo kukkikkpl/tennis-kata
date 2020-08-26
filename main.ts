@@ -1,14 +1,27 @@
+/**
+ * Return json of game score.
+ * 
+ * @param {number}  player1     player 1 score.
+ * @param {number}  player2     player 2 score.
+ * @return {Object} json of each player score.
+*/
 export function updateGameScore(player1: number, player2: number) {
-    var json = {
+    const json = {
         "player1Points": player1,
         "player2Points": player2
     }
     return json
 }
 
+/**
+ * Return game winner
+ * 
+ * @param {Object}  game    json of each player score
+ * @return {String} winner of the game
+*/
 export function decideGameWinner(game: Object) {
-    var player1Points = game['player1Points']
-    var player2Points = game['player2Points']
+    const player1Points = game['player1Points']
+    const player2Points = game['player2Points']
     if (player1Points >= 4 || player2Points >= 4) {
         if (player1Points - player2Points >= 2) {
             return 'Player 1'
@@ -22,10 +35,16 @@ export function decideGameWinner(game: Object) {
     }
 }
 
+/**
+ * Return score
+ * 
+ * @param {Array<number>} score     Array of player 1 and player 2 score
+ * @return {String} print score of players
+*/
 export function printScore(score: Array<number>) {
-    var runningScore = ['love', 'fifteen', 'thirty', 'forty']
-    var player1Points = score[0]
-    var player2Points = score[1]
+    const runningScore = ['love', 'fifteen', 'thirty', 'forty']
+    const player1Points = score[0]
+    const player2Points = score[1]
     if (player1Points === player2Points) {
         if (player1Points === 3 && player2Points === 3)
             return 'deuce'
